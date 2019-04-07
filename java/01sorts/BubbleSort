@@ -1,0 +1,44 @@
+package sort;
+
+import java.util.ArrayList;
+
+/*
+ * 两两比较，前者比后者大，则交换顺序
+ * 直至将最大的交换至最右侧
+ * 下一轮，依次造做
+ * 时间复杂度：O（n^2）
+ * 稳定排序
+ * 
+ * 优化： 可以设置一个标志位，当一趟排序里有交换时设为true，没有交换则说明已经排序完成，可以直接结束排序
+ */
+
+public class BubbleSort {
+	public static void bubbleSort(int[] arr){
+		int len = arr.length;
+		
+		for(int i = 0; i < len-1; i++){
+			boolean flag=false;
+			for(int j = 0; j < len - i - 1; j++){
+				if(arr[j]>arr[j+1]){
+					int tmp=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=tmp;
+					flag=true;
+				}
+			}
+			if(flag==false)
+				return;
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		int[] arr={4,6,2,1,5,7,0,8};
+		bubbleSort(arr);
+		for (int i : arr) {
+			System.out.print(i+"\t");
+			
+		}
+	}
+
+}
